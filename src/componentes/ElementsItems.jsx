@@ -24,7 +24,7 @@ export const ElementsItems = ({ element }) => {
         <div className="d-flex justify-content-between mt-4">
           <h5 className="card-title">${element.price}.00</h5>
           <button onClick={carrito} className="btn btn-primary">
-            Añadir
+          <i className="fa-solid fa-cart-shopping"></i>
           </button>
         </div>
       </div>
