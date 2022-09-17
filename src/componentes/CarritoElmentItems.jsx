@@ -1,9 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../css/MostrarElementos.module.css";
-import { decrementar } from "../store/slices/CarritoSlices";
+import { decrementar, vaciarCart } from "../store/slices/CarritoSlices";
 
 export const CarritoElmentItems = () => {
   const elementos = useSelector((store) => store.card);
+
+  const sutbTotal = elementos.reduce((contador,product) => contador + product.price * product.cantidad,0);
+
 
   const dispacth = useDispatch();
 
@@ -58,6 +61,18 @@ export const CarritoElmentItems = () => {
             </div>
           ))
         )}
+      </div>
+      <div className="w-100 text-center px-5">
+      <h2>Total a pagar</h2>
+        <hr />
+        <div className="d-flex justify-content-between ">
+            <h1>${sutbTotal}</h1>
+            <button onClick={()=> dispacth(vaciarCart())} className="btn btn-outline-primary">Vaciar Carrito</button>
+        </div>
+        <hr />
+        <br />
+        <br />
+        <br />
       </div>
     </>
   );
