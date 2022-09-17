@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = [];
@@ -32,9 +34,15 @@ export const CarritoSlices = createSlice({
           return (state = newVlorr);
         } else {
           state[product].cantidad -= 1;
+          toast.info("Eliminado del carrito", {
+            position: "top-center",
+          });
         }
       } else {
         state[product].cantidad += 1;
+        toast.success("Añadido con exito", {
+          position: "top-center",
+        });
       }
     },
   },

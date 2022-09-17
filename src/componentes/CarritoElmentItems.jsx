@@ -33,8 +33,13 @@ export const CarritoElmentItems = () => {
                 alt={element.title}
               />
               <div className="card-body">
-                <h6 className="card-title" id={styles.titulo} >{element.title}</h6>
-                <h6 className="card-title">{element.price} * {element.cantidad} = {element.price * element.cantidad}</h6>
+                <h6 className="card-title" id={styles.titulo}>
+                  {element.title}
+                </h6>
+                <h6 className="card-title">
+                  {element.price} * {element.cantidad} ={" "}
+                  {element.price * element.cantidad}
+                </h6>
                 <div className="d-flex justify-content-between mt-4">
                   <button
                     onClick={() => decrementCarrito(element.id)}
